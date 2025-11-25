@@ -1,3 +1,6 @@
+controller.A.onEvent(ControllerButtonEvent.Released, function () {
+    game.splash("hello")
+})
 scene.setBackgroundColor(14)
 game.splash("Welcome To Our Game")
 scene.setBackgroundImage(img`
