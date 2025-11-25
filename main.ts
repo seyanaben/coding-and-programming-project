@@ -1,6 +1,8 @@
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     game.splash("hello")
+    controller.moveSprite(mySprite)
 })
+let mySprite: Sprite = null
 scene.setBackgroundColor(14)
 game.splash("Welcome To Our Game")
 scene.setBackgroundImage(img`
@@ -125,7 +127,7 @@ scene.setBackgroundImage(img`
     eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     `)
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . f f f f . . . . . . 
     . . . . . f f b b f f . . . . . 
