@@ -122,7 +122,7 @@ scene.setBackgroundImage(img`
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
     `)
-let mySprite = sprites.create(img`
+let Fusée = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . f f f f . . . . . . 
     . . . . . f f b b f f . . . . . 
@@ -140,7 +140,7 @@ let mySprite = sprites.create(img`
     . . 2 2 4 5 5 5 5 5 5 4 2 2 . . 
     . . 2 4 4 5 5 5 5 5 5 4 4 2 . . 
     `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(Fusée)
 let projectile = sprites.createProjectileFromSide(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
