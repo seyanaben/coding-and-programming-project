@@ -1,3 +1,8 @@
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    info.changeScoreBy(1)
+})
+let Bombom: Sprite = null
 scene.setBackgroundColor(14)
 game.splash("Welcome To Our Game")
 scene.setBackgroundImage(img`
@@ -140,22 +145,27 @@ let Fusée = sprites.create(img`
     . . 2 2 4 5 5 5 5 5 5 4 2 2 . . 
     . . 2 4 4 5 5 5 5 5 5 4 4 2 . . 
     `, SpriteKind.Player)
-controller.moveSprite(Fusée)
-let projectile = sprites.createProjectileFromSide(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . f f f f f f . . . . . 
-    . . . f f f 8 8 8 8 f f f . . . 
-    . . f f 8 8 c 8 8 8 8 8 f f . . 
-    . . f 8 c c c 8 8 8 8 8 8 f . . 
-    f f f f f f f 8 8 f f f f f f f 
-    d d d d d d f f f f d d d d d f 
-    d f f f f d d d d d d f f f d f 
-    d d f 8 f f f f f f f f f d d f 
-    f f f 8 8 8 8 8 8 8 c 8 8 f f f 
-    . . f f 8 8 8 8 c c c 8 f f . . 
-    . . . f 8 8 8 8 c 8 8 8 f . . . 
-    . . . f f f 8 8 8 8 f f f . . . 
-    . . . . . f f f f f f . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, 50, 50)
+controller.moveSprite(Fusée, controller.dy(), 100)
+info.startCountdown(10)
+forever(function () {
+    Bombom = sprites.createProjectileFromSide(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . f f f 8 8 8 8 f f f . . . 
+        . . f f 8 8 c 8 8 8 8 8 f f . . 
+        . . f 8 c c c 8 8 8 8 8 8 f . . 
+        f f f f f f f 8 8 f f f f f f f 
+        d d d d d d f f f f d d d d d f 
+        d f f f f d d d d d d f f f d f 
+        d d f 8 f f f f f f f f f d d f 
+        f f f 8 8 8 8 8 8 8 c 8 8 f f f 
+        . . f f 8 8 8 8 c c c 8 f f . . 
+        . . . f 8 8 8 8 c 8 8 8 f . . . 
+        . . . f f f 8 8 8 8 f f f . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, -90, 0)
+    Bombom.y = randint(15, 115)
+    pause(1000)
+})
